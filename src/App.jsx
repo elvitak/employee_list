@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Header } from "semantic-ui-react";
+import EmployeeList from "./EmployeeList";
 
 const App = () => {
   const [employees, setEmployees] = useState([]);
@@ -15,15 +17,17 @@ const App = () => {
 
   const employeeList = employees.map((employee) => {
     return (
-      <li
-        key={employee.id}
-      >{`${employee.first_name} ${employee.last_name}`}</li>
+      <li key={employee.id}>
+        <EmployeeList employee={employee} />
+      </li>
     );
   });
 
   return (
     <React.Fragment>
-      <h1 data-cy="employee-header">Employee List</h1>
+      <Header as="h1" data-cy="employee-header">
+        Employee List
+      </Header>
       <ul data-cy="employee-list">{employeeList}</ul>
     </React.Fragment>
   );
