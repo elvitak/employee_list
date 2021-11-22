@@ -17,7 +17,7 @@ describe("Visiting the application, a user", () => {
 
   describe("can see a list of employees", () => {
     it("is expected to see first employee", () => {
-      cy.get("#1").within(() => {
+      cy.get("#employee-1").within(() => {
         cy.get(".image").should("exist");
         cy.get(".header").should("contain", "Karlis Ozolins");
         cy.get(".description").should("contain", "george.bluth@reqres.in");
@@ -25,7 +25,7 @@ describe("Visiting the application, a user", () => {
     });
 
     it("is expected to see second employee", () => {
-      cy.get("#2").within(() => {
+      cy.get("#employee-2").within(() => {
         cy.get(".image").should("exist");
         cy.get(".header").should("contain", "Anna Klavina");
         cy.get(".description").should("contain", "janet.weaver@reqres.in");
@@ -33,7 +33,7 @@ describe("Visiting the application, a user", () => {
     });
 
     it("is expected to see third employee", () => {
-      cy.get("#3").within(() => {
+      cy.get("#employee-3").within(() => {
         cy.get(".image").should("exist");
         cy.get(".header").should("contain", "John Something");
         cy.get(".description").should("contain", "emma.wong@reqres.in");
@@ -41,7 +41,7 @@ describe("Visiting the application, a user", () => {
     });
 
     it("is expected to see third employee", () => {
-      cy.get("#4").within(() => {
+      cy.get("#employee-4").within(() => {
         cy.get(".image").should("exist");
         cy.get(".header").should("contain", "Ieva Voilaa");
         cy.get(".description").should("contain", "eve.holt@reqres.in");
@@ -49,7 +49,7 @@ describe("Visiting the application, a user", () => {
     });
 
     it("is expected to see fifth employee", () => {
-      cy.get("#5").within(() => {
+      cy.get("#employee-5").within(() => {
         cy.get(".image").should("exist");
         cy.get(".header").should("contain", "Charles Morris");
         cy.get(".description").should("contain", "charles.morris@reqres.in");
