@@ -1,0 +1,21 @@
+/* eslint-disable no-undef */
+describe("Display of employee modal", () => {
+  beforeEach(() => {
+    cy.visit("/");
+    cy.get("[data-cy=employee-list]").within(() => {
+      cy.get("#employee-1").first().find(".view-button").click();
+    });
+  });
+
+  it("is expected to open when view button is clicked", () => {
+    cy.get("[data-cy=modal-container]").should("be.visible");
+  });
+
+  it("is expected to contain infomation about employee", () => {
+    cy.get("[data-cy=modal-container]").within(() => {
+      cy.get(".image").should("exist");
+      cy.get(".header").should("contain", "Karlis Ozolins");
+      cy.get(".description").should("contain", "george.bluth@reqres.in");
+    });
+  });
+});
