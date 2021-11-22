@@ -1,6 +1,9 @@
 /* eslint-disable no-undef */
 describe("Display of employee modal", () => {
   beforeEach(() => {
+    cy.intercept("GET", "https://reqres.in/api/users/1**", {
+      fixture: "oneUserResponse.json",
+    }).as("fetchData");
     cy.visit("/");
     cy.get("[data-cy=employee-list]").within(() => {
       cy.get("#1").find(".view-button").click();
