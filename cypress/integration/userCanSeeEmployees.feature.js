@@ -3,7 +3,7 @@ describe("Visiting the application, a user", () => {
   beforeEach(() => {
     cy.intercept("GET", "https://reqres.in/api/users**", {
       fixture: "userResponse.json",
-    });
+    }).as("fetchData");
     cy.visit("/");
   });
 
@@ -11,7 +11,11 @@ describe("Visiting the application, a user", () => {
     cy.get("[data-cy=employee-header]").should("contain.text", "Employee List");
   });
 
-  it("is expecte dto see 5 list items", () => {
+  it("is expected to return an array od data", () => {
+    cy.wait("@fetchData").its("response.body.data").should("be.an", "array");
+  });
+
+  it("is expected to see 5 list items", () => {
     cy.get("[data-cy=employee-list]").children().should("have.length", 5);
   });
 
