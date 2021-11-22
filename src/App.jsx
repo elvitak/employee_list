@@ -17,7 +17,7 @@ const App = () => {
 
   const employeeList = employees.map((employee) => {
     return (
-      <li id={`employee-${employee.id}`} key={employee.id}>
+      <li id={employee.id} key={employee.id}>
         <EmployeeList employee={employee} />
       </li>
     );

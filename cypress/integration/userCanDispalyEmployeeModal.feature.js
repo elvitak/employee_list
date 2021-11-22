@@ -3,7 +3,7 @@ describe("Display of employee modal", () => {
   beforeEach(() => {
     cy.visit("/");
     cy.get("[data-cy=employee-list]").within(() => {
-      cy.get("#employee-1").first().find(".view-button").click();
+      cy.get("#1").find(".view-button").click();
     });
   });
 

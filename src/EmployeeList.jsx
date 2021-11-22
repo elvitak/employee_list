@@ -1,5 +1,6 @@
 import React from "react";
 import { List, Image } from "semantic-ui-react";
+import EmployeeModal from "./EmployeeModal";
 
 const EmployeeList = ({ employee }) => {
   return (
@@ -11,6 +12,7 @@ const EmployeeList = ({ employee }) => {
             {`${employee.first_name} ${employee.last_name}`}
           </List.Header>
           <List.Description>{employee.email}</List.Description>
+          <EmployeeModal id={employee.id} />
         </List.Content>
       </List.Item>
     </List>
